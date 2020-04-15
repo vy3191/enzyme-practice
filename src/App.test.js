@@ -6,7 +6,9 @@ import App from './App';
 Enzyme.configure({adapter: new EnzymeAdapter});
 
 test('renders <App /> without errors', () => {
-    
+    const wrapper = shallow(<App />);
+    const appComponent = wrapper.find("[data-test='component-app']");
+    expect(appComponent.length).toBe(1);
 });
 
 test('renders increment button', () => {
